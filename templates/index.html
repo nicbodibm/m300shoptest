@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+</head>
+<body>
+    <h1>Shop</h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                <img src="{{ product.image }}" alt="{{ product.name }}" style="width:100px;height:100px;">
+                <h2>{{ product.name }}</h2>
+                <p>{{ product.description }}</p>
+                <p>{{ product.price }} €</p>
+                <a href="{{ url_for('add_to_cart', product_id=product.id) }}">Add to Cart</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('cart') }}">Go to Cart</a>
+</body>
+</html>
